@@ -1,0 +1,28 @@
+
+.zhilin-toast {
+  // min-width: 220px;
+  position: fixed;
+  z-index: 99999;
+  top: 50%;
+  // bottom: 150px;
+  transform: translate(0, -50%);
+  display: none;
+  font-size: 14px; /* px */
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .6);
+  color: #fff;
+  text-align: center;
+  line-height: 25px;
+  max-width: 290px;
+  vertical-align: middle;
+  word-break: break-all;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  opacity: 0;
+  will-change: opacity;
+  transition: opacity 0.2s ease-in-out;
+  &.zhilin-fade-in {
+    opacity: 1;
+  }
+}

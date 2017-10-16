@@ -1,0 +1,22 @@
+//加载更多提示
+.zhilin-more-loader {
+  position: relative;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 14px; /* px */
+  line-height: 40px;
+  // padding-top: 15px;
+  // padding-bottom: 15px;
+  text-align: center;
+
+  .zhilin-loading-info {
+    margin-left: 30px;
+  }
+}
+
+.zhilin-loading-nomore {
+  height: 40px;
+  font-size: 14px; /* px */
+  line-height: 40px;
+  text-align: center;
+}

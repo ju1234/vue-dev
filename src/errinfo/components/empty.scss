@@ -1,0 +1,54 @@
+.empty{
+  &-icon{
+    margin-top: 55px;
+    height: 80px;
+    position: relative;
+    > i, > span{
+      position: absolute;
+      display: block;
+      width: 80px;
+      height: 80px;
+      left: 0;
+      right: 0;
+      top: 0;
+      margin: auto;
+    }
+    > i{
+      background-color: #FFA9A9;
+      opacity: 0.3;
+      z-index: 2;
+    }
+    > span{
+      z-index: 1;
+      background: url(../images/store.png) no-repeat center center;
+    }
+  }
+
+  &-text{
+    font-family: PingFangSC-Regular;
+    font-size: 17px;
+    color: #999999;
+    letter-spacing: -0.54px; /* px */
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  &-link{
+    margin-top: 19px;
+    text-align: center;
+    > a{
+      display: inline-block;
+      margin: 0 auto;
+      padding: 9px 22px;
+      text-align: center;
+      background: #FFFFFF;
+      border: 1px solid #BBBBBB; /* px */
+      border-radius: 2px; /* px */
+      margin: 0 auto;
+      font-family: PingFangSC-Regular;
+      font-size: 16px;
+      color: #434343;
+      letter-spacing: -0.51px; /* px */
+    }
+  }
+}

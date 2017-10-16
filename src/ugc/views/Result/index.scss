@@ -1,0 +1,19 @@
+.result-page {
+  display: flex;
+  padding: 17px 0;
+  flex-direction: row;
+  background: #fff;
+
+  justify-content: center;
+  align-items: center;
+  h3 {
+    font-size: 18px;
+  }
+  .success-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    background: url(../../../images/success.png) no-repeat center center;
+    background-size: contain;
+  }
+}

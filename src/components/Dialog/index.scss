@@ -1,0 +1,146 @@
+.dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  &-mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    opacity: .5;
+  }
+  &-wrap {
+    z-index: 100;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+    background-color: #fff;
+    width: 80%;
+    border-radius: 5px;
+    font-size: 16px;
+    -webkit-user-select: none;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: .2s;
+    transition: .2s;
+  }
+
+  &-header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    padding: 10px 20px 0 20px;
+  }
+
+  &-body {
+    display: flex;
+    padding: 10px 20px 10px 20px;
+    border-bottom: 1px solid #E8E8E8; /* no */
+    font-size: 14px;
+    justify-content: center;
+    color: #666;
+    text-align: center;
+  }
+
+  &-btns {
+    justify-content: center;
+    display: flex;
+  }
+  &-cancel-btn, &-ok-btn{
+    height: 45px;
+    font-size: 16px;
+    flex: 1;
+    color: #3dc6b6;
+    text-align: center;
+    border-radius: 5px;
+  }
+  &-cancel-btn {
+    border-right: 1px solid #E8E8E8; /* no */
+  }
+
+  &-all-btn {
+    width: 100%;
+  }
+  &-close {
+    -webkit-animation: dialog-zoomIn 1000ms ease both;
+            animation: dialog-zoomIn 1000ms ease both;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+  &-open {
+    -webkit-animation: dialog-zoomOut 1000ms ease both;
+    -webkit-animation-play-state: paused;
+            animation: dialog-zoomOut 1000ms ease both;
+    animation-play-state: paused;
+  }
+}
+
+@-webkit-keyframes dialog-zoomOut {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(.8) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1) translateZ(0);
+  }
+}
+@keyframes dialog-zoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(.8) translateZ(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+}
+@-webkit-keyframes dialog-zoomIn {
+  0% {
+    opacity: 1;
+    -webkit-transform: scale(1) translateZ(0);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(.8) translateZ(0);
+  }
+}
+@keyframes dialog-zoomIn {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(.8) translateZ(0);
+  }
+}
+
+.dialog-bounce-enter-active {
+  animation: dialog-zoomOut 200ms ease both;
+}
+.dialog-bounce-leave-active {
+  animation: dialog-zoomIn 200ms ease both;
+}
+
+// .dialog-mask-enter {
+//   -webkit-animation: v-modal-in .2s ease;
+//           animation: v-modal-in .2s ease;
+// }
+// .dialog-mask-leave {
+//   -webkit-animation: v-modal-out .2s ease forwards;
+//           animation: v-modal-out .2s ease forwards;
+// }

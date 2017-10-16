@@ -1,0 +1,145 @@
+$fontSize: PingFang-SC-Regular, Helvetica, sans-serif;
+html, body {
+  /*background: #fff;*/
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  font-family: $fontSize;
+	font-weight: normal;
+  font-size: 12px; /* px */
+  margin: 0;
+  padding: 0;
+  position: relative;
+  // overflow-y: scroll;
+  // -webkit-overflow-scrolling: touch;
+}
+
+blockquote, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, legend, li, ol, p, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body, a, span, div, img {
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+}
+
+a {
+	display: block;
+	color: #000;
+	text-decoration: none;
+  &:-webkit-any-link {
+    text-decoration: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='button'],
+button,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  outline-offset: 0;
+  outline-style: none;
+  outline-width: 0;
+  -webkit-font-smoothing: inherit;
+  -webkit-appearance: none;
+  background-image: none;
+  background-color: #fff;
+  font-family: $fontSize;
+}
+input[type='button'],
+button,
+input[type='radio'],
+input[type='checkbox']{
+  &:focus {
+    outline: none;
+	}
+}
+
+input::-webkit-input-placeholder {
+  color: #ccc;
+}
+button {
+  text-align: center;
+  border: none;
+  padding: 0;
+}
+
+// 清除浮动
+.clearfix {
+	&:after {
+		clear: both;
+		display: block;
+		visibility: hidden;
+		height: 0;
+		line-height: 0;
+		content: '';
+	}
+}
+
+.hide {
+  display: none !important;
+}
+
+:-webkit-full-screen {
+    width: 100%!important;
+    height: 100%!important
+}
+
+:-moz-full-screen {
+    width: 100%!important;
+    height: 100%!important
+}
+
+:-ms-full-screen {
+    width: 100%!important;
+    height: 100%!important
+}
+
+:-ms-fullscreen {
+    width: 100%!important;
+    height: 100%!important
+}
+
+:fullscreen {
+    width: 100%!important;
+    height: 100%!important
+}
+
+//.zhilin-scroll-html {
+//  height: 100% !important;
+//  overflow-y: scroll !important;
+//}
+//.zhilin-scroll-body {
+//  //height: 100% !important;
+//  overflow-y: scroll !important;
+//  -webkit-overflow-scrolling: touch;
+//  &::-webkit-scrollbar {
+//    display: none;
+//  }
+//}
+
+.zhilin-scroll-html {
+  height: 100% !important;
+  overflow-y: hidden !important;
+}
+.zhilin-scroll-body {
+  height: 100% !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

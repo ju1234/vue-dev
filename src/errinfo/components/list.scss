@@ -1,0 +1,105 @@
+@import "../../libs/mixins.scss";
+
+.item {
+  padding: 0 16px;
+  border-bottom: 10px solid #F0F0F0;
+  border-top: 10px solid #F0F0F0;
+  background: #fff;
+  & + &{
+    border-top-width: 0;
+  }
+  &-header {
+    display: flex;
+    padding: 11.5px 0 11px 0;
+    //line-height: 22.5px;
+    align-items: center;
+  }
+  &-tag {
+    font-size: 11px;
+    color: #F44336;
+    @include flex;
+    height: 18px;
+    border: 1px solid #F44336; /* no */
+    border-radius: 1px; /* px */
+    padding: 1.5px 5px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    &-pass {
+      color: #4CAF50;
+      border: 1px solid #4CAF50; /* no */
+    }
+  }
+  &-name {
+    font-size: 16px;
+    color: #333333;
+    letter-spacing: -0.255px;
+    word-break: break-all;
+    flex: 1;
+  }
+  &-date {
+    font-size: 11px;
+    color: #999999;
+    letter-spacing: -0.175px;
+    line-height: 22.5px;
+    margin-left: 10px;
+    flex-shrink: 0;
+  }
+  &-content {
+    padding: 15px 0;
+    border-top: 1px solid #E1E1E1; /* no */
+    border-bottom: 1px solid #E1E1E1; /* no */
+    > div:not(:last-child){
+      margin-bottom: 11px; /* no */
+    }
+  }
+  &-reason {
+    font-family: PingFangSC-Regular;
+    //font-weight: bold;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  &-detail {
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    color: #333333;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  &-footer {
+    //height: 45px;
+    display: flex;
+    justify-content: flex-end;
+    //flex-direction: row-reverse;
+    padding: 7.5px 0;
+  }
+  &-btn {
+    font-size: 14px;
+    color: #666666;
+    letter-spacing: -0.225px;
+    height: 30px;
+    @include flex;
+    border-radius: 20px;
+    padding: 0px 10px;
+    border: 1px solid #BBBBBB; /* no */
+    box-sizing: border-box;
+    margin-right: 10px;
+    &:last-child {
+      margin-right: 0px;
+    }
+    &-active {
+      border: 1px solid #FF6633;/* no */
+      color: #FF6633;
+    }
+    &-disabled{
+      background: #CCCCCC;
+      color: #fff;
+    }
+    &-inactive {
+      border: none;
+      color: #FF6633;
+      background: #CCCCCC;
+    }
+  }
+}

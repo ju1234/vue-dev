@@ -1,0 +1,11 @@
+{
+  "presets": ["es2015", "stage-1"],
+  "plugins": ["transform-runtime", "transform-object-assign",
+    "syntax-dynamic-import", "transform-async-to-generator"],
+  "comments": false,
+  "ignore": [
+    "vue.min.js",
+    "vuex.min.js",
+    "vue-router.min.js"
+  ]
+}

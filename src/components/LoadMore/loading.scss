@@ -1,0 +1,99 @@
+
+// 正在加载图标 参考WeUI
+@mixin loading-leaf($xsize, $width, $height) {
+	.zhilin-loading-leaf {
+		position: absolute;
+		top: -1px;
+		opacity: 0.25;
+		&:before {
+			content: " ";
+			position: absolute;
+			width: $width;
+			height: $height;
+			// background: #d1d1d5;
+			background: #444;
+			box-shadow: rgba(0, 0, 0, 0.0980392) 0 0 1px;
+			border-radius: 1px;
+			-webkit-transform-origin: left 50% 0;
+			transform-origin: left 50% 0;
+		}
+	}
+	@for $i from 0 to 12 {
+		.zhilin-loading-leaf-#{$i} {
+			-webkit-animation: zhilin-opacity-60-25-#{$i}-12 1.25s linear infinite;
+			animation: zhilin-opacity-60-25-#{$i}-12 1.25s linear infinite;
+			&:before {
+				-webkit-transform: rotate($i*30deg) translate($xsize, 0px);
+				transform: rotate($i*30deg) translate($xsize, 0px);
+			}
+		}
+	}
+}
+.zhilin-loading {
+	position: absolute;
+	width: 0;
+	z-index: 2000;
+	left: 50%;
+	@include loading-leaf(7.92px,8.14px,3.08px);
+}
+.zhilin-loading-bottom {
+	top: 50%;
+	z-index: 0;
+	margin-left: -42px;
+	transform: translateY(-50%);
+
+	@include loading-leaf(4px,6px,2px);
+}
+
+//全局加载提示
+.zhilin-loader-style {
+	.zhilin-backdrop {
+		background-color: rgba(0, 0, 0, 0);
+	}
+	.zhilin-loading {
+		top: 38%;
+		@include loading-leaf(7.92px,8.14px,3.08px);
+	}
+}
+
+@for $i from 0 through 4 {
+	@-webkit-keyframes zhilin-opacity-60-25-#{$i}-12 {
+		$diff: $i*25/3;
+		0% {
+			opacity: 0.25;
+		}
+		#{0.01+$diff}% {
+			opacity: 0.25;
+		}
+		#{0.02+$diff}% {
+			opacity: 1;
+		}
+		#{60.01+$diff}% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: 0.25;
+		}
+	}
+}
+@for $i from 5 through 12 {
+	@-webkit-keyframes zhilin-opacity-60-25-#{$i}-12 {
+		$diff: $i*25/3;
+		$opacity: 0.270958333333333+$i*5/48-25/48;
+		0% {
+			opacity: $opacity;
+		}
+		#{0.01+$diff}% {
+			opacity: 0.25;
+		}
+		#{0.02+$diff}% {
+			opacity: 1;
+		}
+		#{60.01+$diff}% {
+			opacity: 0.25;
+		}
+		100% {
+			opacity: $opacity;
+		}
+	}
+}

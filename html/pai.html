@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <link rel="dns-prefetch" href="//h5.dianping.com">
+  <link rel="dns-prefetch" href="//s1.51ping.com">
+  <link rel="dns-prefetch" href="//analytics.meituan.net" />
+  <link rel="dns-prefetch" href="//www.dpfile.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content=""/>
+  <meta name="format-detection" content="telephone=no">
+  <meta name="format-detection" content="email=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="screen-orientation" content="portrait">
+  <meta name="x5-orientation" content="portrait">
+  <meta name="full-screen" content="yes">
+  <meta name="x5-fullscreen" content="true">
+  <title>&#8203;</title>
+  <%=htmlWebpackPlugin.files.webpackManifest%>
+  <script>
+    <%= require('html-loader!../src/libs/flexible.js') %>
+  </script>
+  <!-- 老版本打点，公司打点系统已改，源代码有所有保留了  -->
+  <script>
+    <%= require('html-loader!../src/libs/beacon_old.js') %>
+  </script>
+  <script>
+
+  </script>
+</head>
+<body>
+<section id="app"></section>
+<script>
+  (function(){
+    if (!Array.prototype.findIndex) {
+      Array.prototype.findIndex = function(predicate) {
+        if (this === null) {
+          throw new TypeError('Array.prototype.findIndex called on null or undefined');
+        }
+        if (typeof predicate !== 'function') {
+          throw new TypeError('predicate must be a function');
+        }
+        var list = Object(this);
+        var length = list.length >>> 0;
+        var thisArg = arguments[1];
+        var value;
+        for (var i = 0; i < length; i++) {
+          value = list[i];
+          if (predicate.call(thisArg, value, i, list)) {
+            return i;
+          }
+        }
+        return -1;
+      };
+    }
+    if (!Array.prototype.unique) {
+      Array.prototype.unique = function(){
+        this.sort(); //先排序
+        var res = [this[0]];
+        for(var i = 1; i < this.length; i++){
+          if(this[i] !== res[res.length - 1]){
+            res.push(this[i]);
+          }
+        }
+        return res;
+      }
+    }
+  })();
+</script>
+</body>
+</html>
