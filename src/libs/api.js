@@ -1,4 +1,3 @@
-import { API_URL } from './env';
 import 'whatwg-fetch';
 import Toast from '@components/Toast/index.js';
 
@@ -17,7 +16,7 @@ export const get = (url, params = {}, direct, tip = true) => {
 	    });
 			if (paramUrls.length) extraUrl = `?${paramUrls.join('&')}`;
 	  }
-		fetch(API_URL + url + extraUrl, {
+		fetch(url + extraUrl, {
 			credentials: 'include'
 		}).then(response => response.json())
 		.then((res) => {
@@ -52,7 +51,7 @@ export const post = (url = '', params = {}, direct, isForm) => {
 			body = JSON.stringify(params);
 			headers['Content-type'] = 'application/json;charset=utf-8';
 		}
-		fetch(API_URL + url, {
+		fetch(url, {
 			method: 'post', headers, body, credentials: 'include',
 		}).then(response => response.json())
 		.then((res) => {

@@ -18,100 +18,12 @@
     <meta name="full-screen" content="yes">
     <meta name="x5-fullscreen" content="true">
     <title>&#8203;</title>
-    <!-- headder中 H5页面PV埋点代码 start-->
-    <!-- 上报通道标识 -->
-    <meta name="lx:category" content="dianping_nova">
-    <!-- 上报应用标识 -->
-    <meta name="lx:appnm" content="dianping_nova">
-    <!-- 页面名称：添加/报错POI个人中心页，上报页面标识 -->
-    <meta name="lx:cid" content="c_igtx8b6b">
-    <meta name="lx:autopv" content="off"/>
-    <!-- 加载sdk -->
-    <link rel="dns-prefetch" href="//analytics.meituan.net"/>
     <%=htmlWebpackPlugin.files.webpackManifest%>
     <script>
       <%= require('html-loader!../src/libs/flexible.js') %>
     </script>
-    <!-- 老版本打点，公司打点系统已改，源代码有所有保留了  -->
-    <script>
-      <%= require('html-loader!../src/libs/beacon_old.js') %>
-    </script>
-    <script>
-      function getCookie(name) {
-        const reg = new RegExp('(^| )' + name + '=([^;]*)(;|$)');
-        const arr = window.document.cookie.match(reg);
-        if ( arr ) {
-          return decodeURIComponent(arr[2]);
-        } else {
-          return null;
-        }
-      }
-
-      !(function (win, doc, ns) {
-        var cacheFunName = '_MeiTuanALogObject';
-        win[cacheFunName] = ns;
-        if (!win[ns]) {
-          var _LX = function () {
-            _LX.q.push(arguments);
-            return _LX;
-          };
-          _LX.q = _LX.q || [];
-          _LX.l = +new Date();
-          win[ns] = _LX;
-        }
-      })(window, document, 'LXAnalytics');
-
-      var uid = getCookie('uid');
-      var logintype = getCookie('logintype');
-      var cityid = getCookie('cityid');
-
-      var environment = {};
-      if(uid) environment.uid = uid;
-      if(logintype) environment.uid = logintype;
-      if(cityid) environment.uid = cityid;
-
-      LXAnalytics('pageView', null, environment);
-    </script>
 </head>
 <body>
   <section id="app"></section>
-  <script>
-  (function(){
-    if (!Array.prototype.findIndex) {
-      Array.prototype.findIndex = function(predicate) {
-        if (this === null) {
-          throw new TypeError('Array.prototype.findIndex called on null or undefined');
-        }
-        if (typeof predicate !== 'function') {
-          throw new TypeError('predicate must be a function');
-        }
-        var list = Object(this);
-        var length = list.length >>> 0;
-        var thisArg = arguments[1];
-        var value;
-        for (var i = 0; i < length; i++) {
-          value = list[i];
-          if (predicate.call(thisArg, value, i, list)) {
-            return i;
-          }
-        }
-        return -1;
-      };
-    }
-    if (!Array.prototype.unique) {
-      Array.prototype.unique = function(){
-       this.sort(); //先排序
-       var res = [this[0]];
-       for(var i = 1; i < this.length; i++){
-        if(this[i] !== res[res.length - 1]){
-         res.push(this[i]);
-        }
-       }
-       return res;
-      }
-    }
-  })();
-  </script>
-  <script src="//analytics.meituan.net/analytics.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>
 </html>

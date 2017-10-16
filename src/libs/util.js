@@ -1,5 +1,3 @@
-import KNB from '@dp/knb';
-
 const isSupportWebp = !![].map && document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0;
 
 
@@ -211,21 +209,3 @@ export function getCookie(name) {
   }
 }
 
-// 登录
-export function login() {
-  return new Promise((resolve, reject) => {
-    KNB.login({
-      success: (user) => {
-        if (user) {
-          resolve(user.userId);
-          // window.reload();
-        } else {
-          KNB.closeWebview({});
-        }
-      },
-      fail: () => {
-        KNB.closeWebview({});
-      }
-    });
-  });
-}
